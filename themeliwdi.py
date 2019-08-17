@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from math import sin, cos, pi, sqrt, atan
-#from numpy import arctan
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
