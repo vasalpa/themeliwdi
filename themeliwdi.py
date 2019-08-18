@@ -14,6 +14,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
+        MainWindow.setFixedSize(800, 600)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/newPrefix/alpha.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -627,11 +628,11 @@ class Ui_MainWindow(object):
         if self.textEdit_5.isHidden():
             self.textEdit_5.show()
             i= True
-            print (i)
+            # print (i)
         else:
             self.textEdit_5.hide()
             i = False
-            print(i)
+            # print(i)
 
     def restore(self):
         """ΕΔΩ ΓΙΝΕΤΑΙ Η ΕΠΑΝΑΦΟΡΑ"""
@@ -651,22 +652,22 @@ class Ui_MainWindow(object):
         self.lineEdit_6.clear()
         try:
             x_a = float(self.lineEdit.text())
-            print (x_a)
+            # print (x_a)
         except:
             self.lineEdit.setText("ΛΑΘΟΣ ΔΕΔΟΜΕΝΑ")
             i = True
 
         try:
             y_a = float(self.lineEdit_2.text())
-            print (y_a)
+            # print (y_a)
         except:
             self.lineEdit_2.setText("ΛΑΘΟΣ ΔΕΔΟΜΕΝΑ")
             i = True
 
         try:
             Gab = float(self.lineEdit_3.text())
-            print(Gab)
-            if Gab > 400:
+            # print(Gab)
+            if Gab > 400 or Gab <0 :
                 raise ("Error")
         except:
             self.lineEdit_3.setText("Εισάγετε τη γωνία 400 - Gαβ")
@@ -675,22 +676,22 @@ class Ui_MainWindow(object):
 
         try:
             Sab = float(self.lineEdit_4.text())
-            print(Sab)
+            # print(Sab)
         except:
             self.lineEdit_4.setText("ΛΑΘΟΣ ΔΕΔΟΜΕΝΑ")
             i = True
 
         if i:
-            print (i)
+            # print (i)
             return
 
-        print ("All Good")
+        # print ("All Good")
         Gab_rad = Gab * pi / 200
         x_b = round(x_a + Sab * sin(Gab_rad) , 2)
-        print (x_b)
-        print (sin(Gab_rad))
+        # print (x_b)
+        # print (sin(Gab_rad))
         y_b = round(y_a + Sab * cos(Gab_rad) , 2)
-        print(y_b)
+        # print(y_b)
         self.lineEdit_5.setText(str(x_b))
         self.lineEdit_6.setText(str(y_b))
 
@@ -709,28 +710,28 @@ class Ui_MainWindow(object):
         self.lineEdit_12.clear()
         try:
             x_a = float(self.lineEdit_7.text())
-            print (x_a)
+            # print (x_a)
         except:
             self.lineEdit_7.setText("ΛΑΘΟΣ ΔΕΔΟΜΕΝΑ")
             i = True
 
         try:
             y_a = float(self.lineEdit_8.text())
-            print (y_a)
+            # print (y_a)
         except:
             self.lineEdit_8.setText("ΛΑΘΟΣ ΔΕΔΟΜΕΝΑ")
             i = True
 
         try:
             x_b = float(self.lineEdit_9.text())
-            print(x_b)
+            # print(x_b)
         except:
             self.lineEdit_9.setText("ΛΑΘΟΣ ΔΕΔΟΜΕΝΑ")
             i = True
 
         try:
             y_b = float(self.lineEdit_10.text())
-            print(y_b)
+            # print(y_b)
         except:
             self.lineEdit_10.setText("ΛΑΘΟΣ ΔΕΔΟΜΕΝΑ")
             i = True
@@ -783,7 +784,7 @@ class Ui_MainWindow(object):
         self.lineEdit_14.clear()
         try:
             G_arxiko = float(self.lineEdit_13.text())
-            if G_arxiko > 400:
+            if G_arxiko > 400 or G_arxiko < 0:
                 raise ("Error")
         except:
             self.lineEdit_13.setText("Εισάγετε τη γωνία 400 - Gαβ")
@@ -795,9 +796,9 @@ class Ui_MainWindow(object):
             th = txt.split(",")
             while "" in th:
                 th.remove("")
-            #print (th)
+#             #print (th)
             g_thlasis = [float(i) for i in th]
-            print(g_thlasis)
+            # print(g_thlasis)
             for i in g_thlasis:
                 if i > 400:
                     raise "Error"
@@ -808,7 +809,7 @@ class Ui_MainWindow(object):
             G_t = (G_arxiko + b_suma + (plithos_b) * 200)
             K = int(G_t // 400)
             G_teliko = round((G_arxiko + b_suma + (plithos_b) * 200 - K * 400),3)
-            print(G_teliko)
+            # print(G_teliko)
             self.lineEdit_14.setText(str(G_teliko))
 
 
